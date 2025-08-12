@@ -15,9 +15,9 @@ public static class HangmanApp {
 		while (!gameLogic.IsGameOver()) {
 			Printer.DisplayState(gameLogic.GetMaskedWord(), gameLogic.GetWrongGuesses(), gameLogic.GetRemainingGuesses());
 
-			char guess = Printer.PromptGuess();
+			string guess = Printer.PromptGuess();
 
-			gameLogic.GuessLetter(guess);
+			gameLogic.GuessHandler(guess);
 
 			if (gameLogic.HasWon()) {
 				Printer.ShowWinMessage(gameLogic.GetFullWord());
