@@ -2,13 +2,18 @@ using System.Text.RegularExpressions;
 
 namespace HangmanApp.Utils;
 
-public class Validator {
+public static partial class Validator {
 
 	public static bool ValidateInput(string input) {
-		Regex regex = new Regex("^[a-zA-Z]+$");
-		return regex.IsMatch(input);
+		string cleanedInput = CleanWhitespace(input);
+		Regex regex = LetterRegex();
+		return regex.IsMatch(cleanedInput);
 	}
 
+	private static string CleanWhitespace(string input) {
+		return input.Replace(" ", "");
+	}
 
-
+    [GeneratedRegex("^[a-zA-Z]+$")]
+    private static partial Regex LetterRegex();
 }

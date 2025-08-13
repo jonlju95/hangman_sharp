@@ -8,18 +8,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87984715-b2bd-4857-a47a-2a8c6810c4a3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.HangmanApp/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.HangmanApp/.idea/indexLayout.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.HangmanApp/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.HangmanApp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HangmanApp/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HangmanApp/GameLogic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/HangmanApp/GameLogic.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HangmanApp/GameState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/HangmanApp/Models/GameModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HangmanApp/HangmanApp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/HangmanApp/HangmanApp.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HangmanApp/Utils/Printer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/HangmanApp/Utils/Printer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HangmanApp/Utils/Printer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/HangmanApp/Utils/ConsoleUI.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HangmanApp/Utils/Validator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/HangmanApp/Utils/Validator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HangmanApp/WordProvider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/HangmanApp/Utils/WordProvider.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DpaMonitoringSettings">
+    <option name="firstShow" value="false" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -35,12 +38,16 @@
     &quot;assignee&quot;: &quot;jonlju95&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/jonlju95/hangman_sharp.git&quot;,
-    &quot;accountId&quot;: &quot;42644644-90ba-4957-b0a2-348c100fbe06&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/jonlju95/hangman_sharp.git",
+    "accountId": "92c9d306-9907-43b5-bfaa-b4558374c268"
   }
-}</component>
+}]]></component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock://diff.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://diff.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
@@ -56,13 +63,14 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    ".NET Project.HangmanApp.executor": "Run",
+    ".NET Project.HangmanApp.executor": "Debug",
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "dev",
+    "ignore.virus.scanning.warn.message": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -107,6 +115,7 @@
       <workItem from="1754906323557" duration="1107000" />
       <workItem from="1754907471889" duration="159000" />
       <workItem from="1754988855188" duration="2048000" />
+      <workItem from="1755071490598" duration="4467000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
