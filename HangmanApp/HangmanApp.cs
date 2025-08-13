@@ -1,42 +1,70 @@
+using HangmanApp.Interfaces;
+using HangmanApp.Models;
 using HangmanApp.Utils;
 
 namespace HangmanApp;
 
-public static class HangmanApp {
+public class HangmanApp(IGameUI gameUi, IWordProvider wordProvider) {
 
-	public static void Run() {
-		Console.WriteLine("Welcome to hangman!\n");
+	public void Run() {
+		while (true) {
+			gameUi.ShowWelcome();
 
-		GameLogic gameLogic = new GameLogic(WordProvider.GetRandomWord(), ConsoleUI.SelectDifficulty());
-		Console.Clear();
-		GameplayLoop(gameLogic);
+			string word = wordProvider.GetRandomWord();
+			Difficulty difficulty = gameUi.SelectDifficulty();
+
+			GameModel gameModel = new GameModel(word, difficulty.rounds);
+			GameLogic gameLogic = new GameLogic(gameModel);
+
+			Console.Clear();
+			this.GameplayLoop(gameLogic);
+
+			if (gameUi.PromptPlayAgain()) {
+				Console.Clear();
+				continue;
+			}
+			break;
+		}
 	}
 
-	private static void GameplayLoop(GameLogic gameLogic) {
+	private void GameplayLoop(GameLogic gameLogic) {
 		while (!gameLogic.IsGameOver()) {
-			ConsoleUI.DisplayState(gameLogic.GetMaskedWord(), gameLogic.GetWrongGuesses(), gameLogic.GetRemainingGuesses());
+			gameUi.DisplayState(gameLogic.GetMaskedWord(), gameLogic.GetWrongGuesses(), gameLogic.GetRemainingGuesses());
 
-			string? guess = ConsoleUI.PromptGuess();
+			string guess = gameUi.PromptGuess();
 
-			gameLogic.GuessHandler(guess);
+			GuessResult result = gameLogic.GuessHandler(guess);
+
+			switch (result) {
+				case GuessResult.CorrectLetter:
+				case GuessResult.CorrectWord:
+					gameUi.ShowCorrectGuessMessage();
+					break;
+				case GuessResult.IncorrectLetter:
+				case GuessResult.IncorrectWord:
+					gameUi.ShowIncorrectGuessMessage();
+					break;
+				case GuessResult.AlreadyGuessed:
+					gameUi.ShowAlreadyGuessedMessage();
+					break;
+				case GuessResult.InvalidInput:
+					gameUi.ShowInvalidInputMessage();
+					break;
+				default:
+					continue;
+			}
 
 			if (gameLogic.HasWon(guess)) {
-				ConsoleUI.ShowWinMessage(gameLogic.GetFullWord());
-				break;
+				gameUi.ShowWinMessage(gameLogic.GetFullWord());
+				return;
 			}
 
 			if (!gameLogic.HasLost()) {
 				continue;
 			}
 
-			ConsoleUI.ShowLoseMessage(gameLogic.GetFullWord());
-			break;
-		}
-
-		if (ConsoleUI.PromptPlayAgain() != 'y') {
+			gameUi.ShowLoseMessage(gameLogic.GetFullWord());
 			return;
 		}
-
-		Run();
 	}
 }

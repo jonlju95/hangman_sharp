@@ -1,4 +1,4 @@
-namespace HangmanApp;
+namespace HangmanApp.Models;
 
 public class GameModel {
 	public string CorrectWord { get; private set; }

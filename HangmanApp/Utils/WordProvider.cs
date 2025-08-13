@@ -1,6 +1,8 @@
-namespace HangmanApp;
+using HangmanApp.Interfaces;
 
-public static class WordProvider {
+namespace HangmanApp.Utils;
+
+public class WordProvider : IWordProvider {
 	private static readonly string[] WordList = [
 		"employee",
 		"activity",
@@ -54,7 +56,7 @@ public static class WordProvider {
 		"vehicle"
 	];
 
-	public static string GetRandomWord() {
+	public string GetRandomWord() {
 		return WordList[new Random().Next(0, WordList.Length - 1)];
 	}
 }
