@@ -1,22 +1,26 @@
 namespace HangmanApp.Models;
 
 public class GameModel {
-	public string CorrectWord { get; private set; }
-	public HashSet<char> GuessedLetters { get; private set; } = [];
+	public string CorrectWord { get; init; } = "";
+	public HashSet<char> GuessedLetters { get; init; } = [];
 	public int RemainingTries { get; set; }
-	public char[] MaskedWord { get; private set; }
+	public string MaskedWord { get; set; } = "";
 
-	public GameModel(string correctWord, int difficulty) {
-		if (string.IsNullOrWhiteSpace(correctWord)) {
-			throw new ArgumentNullException(nameof(correctWord));
-		}
+	public bool HasWon => !this.MaskedWord.Contains('_');
+	public bool HasLost => this.RemainingTries <= 0;
+	public bool IsGameOver => this.HasWon | this.HasLost;
 
-		this.CorrectWord = correctWord;
-		this.RemainingTries = difficulty;
-
-		this.MaskedWord = new char[correctWord.Length];
-		for (int i = 0; i < this.CorrectWord.Length; i++) {
-			this.MaskedWord[i] = '_';
-		}
-	}
+	// public GameModel(string correctWord, int difficulty) {
+	// 	if (string.IsNullOrWhiteSpace(correctWord)) {
+	// 		throw new ArgumentNullException(nameof(correctWord));
+	// 	}
+	//
+	// 	this.CorrectWord = correctWord;
+	// 	this.RemainingTries = difficulty;
+	//
+	// 	this.MaskedWord = new char[correctWord.Length];
+	// 	for (int i = 0; i < this.CorrectWord.Length; i++) {
+	// 		this.MaskedWord[i] = '_';
+	// 	}
+	// }
 }

@@ -6,65 +6,40 @@ namespace HangmanApp;
 
 public class HangmanApp(IGameUI gameUi, IWordProvider wordProvider) {
 
-	public void Run() {
-		while (true) {
-			gameUi.ShowWelcome();
+    public void Run() {
+        gameUi.ShowWelcome();
 
-			string word = wordProvider.GetRandomWord();
-			Difficulty difficulty = gameUi.SelectDifficulty();
+        GameLogic gameLogic = new GameLogic(wordProvider.GetRandomWord(), gameUi.SelectDifficulty().rounds);
 
-			GameModel gameModel = new GameModel(word, difficulty.rounds);
-			GameLogic gameLogic = new GameLogic(gameModel);
+        Console.Clear();
+        this.GameplayLoop(gameLogic);
+    }
 
-			Console.Clear();
-			this.GameplayLoop(gameLogic);
+    private void GameplayLoop(GameLogic gameLogic) {
+        while (true) {
+            GameModel gameModel = gameLogic.GetState();
+            gameUi.DisplayState(gameModel.MaskedWord, gameModel.GuessedLetters,
+                gameModel.RemainingTries);
 
-			if (gameUi.PromptPlayAgain()) {
-				Console.Clear();
-				continue;
-			}
-			break;
-		}
-	}
+            if (gameModel.IsGameOver) {
+                if (gameModel.HasWon) {
+                    gameUi.ShowWinMessage(gameModel.CorrectWord);
+                } else {
+                    gameUi.ShowLoseMessage(gameModel.CorrectWord);
+                }
 
-	private void GameplayLoop(GameLogic gameLogic) {
-		while (!gameLogic.IsGameOver()) {
-			gameUi.DisplayState(gameLogic.GetMaskedWord(), gameLogic.GetWrongGuesses(), gameLogic.GetRemainingGuesses());
+                break;
+            }
 
-			string guess = gameUi.PromptGuess();
+            GuessResult result = gameLogic.GuessHandler(gameUi.PromptGuess());
+            gameUi.ShowGuessFeedback(result);
+        }
 
-			GuessResult result = gameLogic.GuessHandler(guess);
+        if (!gameUi.PromptPlayAgain()) {
+            return;
+        }
 
-			switch (result) {
-				case GuessResult.CorrectLetter:
-				case GuessResult.CorrectWord:
-					gameUi.ShowCorrectGuessMessage();
-					break;
-				case GuessResult.IncorrectLetter:
-				case GuessResult.IncorrectWord:
-					gameUi.ShowIncorrectGuessMessage();
-					break;
-				case GuessResult.AlreadyGuessed:
-					gameUi.ShowAlreadyGuessedMessage();
-					break;
-				case GuessResult.InvalidInput:
-					gameUi.ShowInvalidInputMessage();
-					break;
-				default:
-					continue;
-			}
-
-			if (gameLogic.HasWon(guess)) {
-				gameUi.ShowWinMessage(gameLogic.GetFullWord());
-				return;
-			}
-
-			if (!gameLogic.HasLost()) {
-				continue;
-			}
-
-			gameUi.ShowLoseMessage(gameLogic.GetFullWord());
-			return;
-		}
-	}
+        Console.Clear();
+        this.Run();
+    }
 }

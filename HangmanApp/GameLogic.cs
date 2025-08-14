@@ -1,107 +1,85 @@
+using System.Text;
 using HangmanApp.Models;
 using HangmanApp.Utils;
 
 namespace HangmanApp;
 
-public class GameLogic(GameModel gameModel) {
+public class GameLogic(string randomWord, int maxRounds) {
+    private readonly string correctWord = randomWord;
+    private readonly HashSet<char> guessedLetters = [];
 
-	private readonly GameModel gameModel = gameModel ?? throw new ArgumentNullException(nameof(gameModel));
+    private GameModel gameModel = new GameModel {
+        CorrectWord = randomWord,
+        GuessedLetters = [],
+        RemainingTries = maxRounds,
+        MaskedWord = new string('_', randomWord.Length),
+    };
 
-	public GuessResult GuessHandler(string? guess) {
-		if (string.IsNullOrWhiteSpace(guess) || !Validator.ValidateInput(guess)) {
-			return GuessResult.InvalidInput;
-		}
+    public GameModel GetState() {
+        return new GameModel {
+            CorrectWord = gameModel.CorrectWord,
+            GuessedLetters = gameModel.GuessedLetters,
+            RemainingTries = gameModel.RemainingTries,
+            MaskedWord = gameModel.MaskedWord
+        };
+    }
 
-		guess = guess.ToUpperInvariant();
+    public GuessResult GuessHandler(string? guess) {
+        if (string.IsNullOrWhiteSpace(guess) || !Validator.ValidateInput(guess)) {
+            return GuessResult.InvalidInput;
+        }
 
-		if (guess.Length == 1) {
-			return this.GuessLetter(guess[0]);
-		}
+        guess = guess.ToUpperInvariant();
 
-		return guess.Length == gameModel.CorrectWord.Length ? this.GuessWord(guess) : GuessResult.InvalidInput;
-	}
+        if (guess.Length == 1) {
+            return this.GuessLetter(guess[0]);
+        }
 
-	private GuessResult GuessLetter(char guessedLetter) {
-		if (!gameModel.GuessedLetters.Add(guessedLetter)) {
-			return GuessResult.AlreadyGuessed;
-		}
+        return guess.Length == gameModel.CorrectWord.Length ? this.GuessWord(guess) : GuessResult.InvalidInput;
+    }
 
-		if (!gameModel.CorrectWord.ToUpperInvariant().Contains(guessedLetter)) {
-			gameModel.RemainingTries--;
-			return GuessResult.IncorrectLetter;
-		}
+    private GuessResult GuessLetter(char guessedLetter) {
+        if (!gameModel.GuessedLetters.Add(guessedLetter)) {
+            return GuessResult.AlreadyGuessed;
+        }
 
-		for (int i = 0; i < gameModel.CorrectWord.Length; i++) {
-			if (gameModel.CorrectWord.ToUpperInvariant()[i] == guessedLetter) {
-				gameModel.MaskedWord[i] = guessedLetter;
-			}
-		}
+        if (!gameModel.CorrectWord.ToUpperInvariant().Contains(guessedLetter)) {
+            gameModel.RemainingTries--;
+            return GuessResult.IncorrectLetter;
+        }
 
-		return GuessResult.CorrectLetter;
-	}
+        for (int i = 0; i < gameModel.CorrectWord.Length; i++) {
+            StringBuilder maskedWordBuilder = new StringBuilder(gameModel.MaskedWord);
+            if (gameModel.CorrectWord.ToUpperInvariant()[i] == guessedLetter) {
+                maskedWordBuilder.Remove(i, 1);
+                maskedWordBuilder.Insert(i, guessedLetter);
+            }
+            gameModel.MaskedWord = maskedWordBuilder.ToString();
+        }
 
-	private GuessResult GuessWord(string? guess) {
-		if (string.Equals(guess, gameModel.CorrectWord, StringComparison.OrdinalIgnoreCase)) {
-			return GuessResult.CorrectWord;
-		}
+        return GuessResult.CorrectLetter;
+    }
 
-		gameModel.RemainingTries--;
-		return GuessResult.IncorrectWord;
-	}
+    private GuessResult GuessWord(string? guess) {
+        if (!string.IsNullOrWhiteSpace(guess) &&
+            string.Equals(guess, gameModel.CorrectWord, StringComparison.OrdinalIgnoreCase)) {
+            gameModel.MaskedWord = guess;
+            return GuessResult.CorrectWord;
+        }
 
-	public bool IsGameOver() {
-		return gameModel.RemainingTries == 0 || this.HasWon("");
-	}
+        gameModel.RemainingTries--;
+        return GuessResult.IncorrectWord;
+    }
 
-	public bool HasWon(string guess) {
-		return string.Equals(guess, gameModel.CorrectWord, StringComparison.OrdinalIgnoreCase) ||
-		       !gameModel.CorrectWord.ToUpperInvariant().Where((t, i) => gameModel.MaskedWord[i] != t).Any();
-	}
+    public HashSet<char> GetWrongGuesses() {
+        return gameModel.GuessedLetters;
+    }
 
-	public bool HasLost() {
-		return gameModel.RemainingTries == 0;
-	}
+    public int GetRemainingGuesses() {
+        return gameModel.RemainingTries;
+    }
 
-	public char[] GetMaskedWord() {
-		return gameModel.MaskedWord;
-	}
-
-	public HashSet<char> GetWrongGuesses() {
-		return gameModel.GuessedLetters;
-	}
-
-	public int GetRemainingGuesses() {
-		return gameModel.RemainingTries;
-	}
-
-	public string GetFullWord() {
-		return gameModel.CorrectWord;
-	}
-	//
-	// private void GuessLetter(char guessedLetter) {
-	// 	if (!this.GameModel.GuessedLetters.Add(guessedLetter)) {
-	// 		ConsoleUI.PrintError("Letter already guessed!");
-	// 		return;
-	// 	}
-	//
-	// 	if (!this.GameModel.CorrectWord.Contains(guessedLetter)) {
-	// 		this.GameModel.RemainingTries--;
-	// 		ConsoleUI.PrintError("Wrong guess!\n");
-	// 	} else {
-	// 		for (int i = this.GameModel.CorrectWord.IndexOf(guessedLetter);
-	// 		     i > -1;
-	// 		     i = this.GameModel.CorrectWord.IndexOf(guessedLetter, i + 1)) {
-	// 			this.GameModel.MaskedWord[i] = guessedLetter;
-	// 		}
-	// 	}
-	// }
-	//
-	// private void GuessWord(string guess) {
-	// 	if (guess == this.GameModel.CorrectWord) {
-	// 		return;
-	// 	}
-	//
-	// 	this.GameModel.RemainingTries--;
-	// 	ConsoleUI.PrintError("Wrong guess!\n");
-	// }
+    public string GetFullWord() {
+        return gameModel.CorrectWord;
+    }
 }
