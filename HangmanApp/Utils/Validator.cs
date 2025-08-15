@@ -14,6 +14,6 @@ public static partial class Validator {
 		return input.Replace(" ", "");
 	}
 
-    [GeneratedRegex("^[a-zA-Z]+$")]
-    private static partial Regex LetterRegex();
+	[GeneratedRegex("^[a-zA-Z]+$")]
+	private static partial Regex LetterRegex();
 }

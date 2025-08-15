@@ -1,4 +1,4 @@
-namespace HangmanApp.Models;
+namespace HangmanApp.Utils;
 
 public enum GuessResult {
 	CorrectLetter,
@@ -6,5 +6,5 @@ public enum GuessResult {
 	CorrectWord,
 	IncorrectWord,
 	AlreadyGuessed,
-	InvalidInput,
+	InvalidInput
 }

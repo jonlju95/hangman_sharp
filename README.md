@@ -1,20 +1,17 @@
 # Hangman (C#)
 
 ## Purpose
-
 A **console-based hangman game** written in C#,
 built as part of a programming assignment.
 
 ## Features
-
 - Choose a difficulty level before starting.
 - Guess either single letters and the full word.
 - Validate and clean user input before processing.
 - Continue playing rounds until the player chooses to exit.
 
 ## Code structure
-
-The program is organized into single-responsibility classes and interfaces:
+The project is organized into single-responsibility classes and interfaces:
 
 - **`Program`** - Entry point, starts the game.
 - **`HangmanApp`** - Main gameplay loop and overall game flow control.

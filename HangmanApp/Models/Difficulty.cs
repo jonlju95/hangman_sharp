@@ -1,4 +1,4 @@
-namespace HangmanApp;
+namespace HangmanApp.Models;
 
 public class Difficulty(string name, int rounds) {
 	public string name { get; set; } = name;

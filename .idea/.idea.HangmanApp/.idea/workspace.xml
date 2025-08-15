@@ -11,7 +11,14 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.HangmanApp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HangmanApp/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HangmanApp/GameLogic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/HangmanApp/GameLogic.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HangmanApp/GameUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/HangmanApp/GameUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HangmanApp/HangmanApp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/HangmanApp/HangmanApp.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HangmanApp/Interfaces/IGameUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/HangmanApp/Interfaces/IGameUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HangmanApp/Models/Difficulty.cs" beforeDir="false" afterPath="$PROJECT_DIR$/HangmanApp/Models/Difficulty.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HangmanApp/Models/GameModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/HangmanApp/Models/GameModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HangmanApp/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/HangmanApp/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HangmanApp/Utils/GuessResult.cs" beforeDir="false" afterPath="$PROJECT_DIR$/HangmanApp/Utils/GuessResult.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HangmanApp/Utils/Validator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/HangmanApp/Utils/Validator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +51,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="mock://E:/Users/Jonatan/Documents/Programming/Lexicon/HangmanApp/HangmanApp/GameLogic.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://E:/Users/Jonatan/Documents/Programming/Lexicon/HangmanApp/HangmanApp/GameLogic.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://E:/Users/Jonatan/Documents/Programming/Lexicon/HangmanApp/HangmanApp/GameLogic.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://E:/Users/Jonatan/Documents/Programming/Lexicon/HangmanApp/HangmanApp/GameUI.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://E:/Users/Jonatan/Documents/Programming/Lexicon/HangmanApp/HangmanApp/Program.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -60,25 +68,25 @@
     <option name="showLibraryContents" value="true" />
     <option name="showScratchesAndConsoles" value="false" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;.NET Project.HangmanApp.executor&quot;: &quot;Run&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Project.HangmanApp.executor": "Run",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "dev",
+    "ignore.virus.scanning.warn.message": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="HangmanApp" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
@@ -118,7 +126,7 @@
       <workItem from="1755179262512" duration="2974000" />
       <workItem from="1755182558982" duration="97000" />
       <workItem from="1755193255080" duration="82000" />
-      <workItem from="1755237947803" duration="5099000" />
+      <workItem from="1755237947803" duration="6672000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -135,7 +143,14 @@
       <option name="presentableId" value="LOCAL−00002" />
       <updated>1755082249106</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL−00003" summary="Add readme">
+      <option name="closed" value="true" />
+      <created>1755253176424</created>
+      <option name="number" value="LOCAL−00003" />
+      <option name="presentableId" value="LOCAL−00003" />
+      <updated>1755253176424</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -170,7 +185,8 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Initial commit" />
     <MESSAGE value="Add difficulty option, validate user input" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add difficulty option, validate user input" />
+    <MESSAGE value="Add readme" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add readme" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

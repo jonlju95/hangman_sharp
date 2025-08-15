@@ -1,10 +1,11 @@
 using HangmanApp.Models;
+using HangmanApp.Utils;
 
 namespace HangmanApp.Interfaces;
 
 public interface IGameUI {
 	void ShowWelcome();
-	void DisplayState(string maskedWord, IEnumerable<char> wrongGuesses, int remainingGuesses);
+	void DisplayState(char[] maskedWord, IEnumerable<char> wrongGuesses, int remainingGuesses);
 	string PromptGuess();
 	void ShowWinMessage(string correctWord);
 	void ShowLoseMessage(string correctWord);
