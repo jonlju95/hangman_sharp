@@ -3,7 +3,7 @@
 namespace HangmanApp;
 
 internal static class Program {
-    public static void Main(string[] args) {
+    public static void Main() {
         GameUI gameUI = new GameUI();
         WordProvider wordProvider = new WordProvider();
         HangmanApp app = new HangmanApp(gameUI, wordProvider);

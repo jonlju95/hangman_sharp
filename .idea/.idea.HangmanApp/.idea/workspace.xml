@@ -11,9 +11,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.HangmanApp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HangmanApp/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HangmanApp/GameLogic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/HangmanApp/GameLogic.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HangmanApp/GameUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/HangmanApp/GameUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HangmanApp/HangmanApp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/HangmanApp/HangmanApp.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HangmanApp/Interfaces/IGameUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/HangmanApp/Interfaces/IGameUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HangmanApp/Models/GameModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/HangmanApp/Models/GameModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HangmanApp/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/HangmanApp/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,13 +38,14 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/jonlju95/hangman_sharp.git&quot;,
-    &quot;accountId&quot;: &quot;42644644-90ba-4957-b0a2-348c100fbe06&quot;
+    &quot;accountId&quot;: &quot;92c9d306-9907-43b5-bfaa-b4558374c268&quot;
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/a01438ba566562f50e41665fc39d16b767aa0649122f35b3ed84cc8957d17/Where.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Users/Jonatan/Documents/Programming/Lexicon/HangmanApp/HangmanApp/HangmanApp.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Users/Jonatan/Documents/Programming/Lexicon/HangmanApp/HangmanApp/Utils/Validator.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://E:/Users/Jonatan/Documents/Programming/Lexicon/HangmanApp/HangmanApp/GameLogic.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://E:/Users/Jonatan/Documents/Programming/Lexicon/HangmanApp/HangmanApp/GameLogic.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://E:/Users/Jonatan/Documents/Programming/Lexicon/HangmanApp/HangmanApp/GameUI.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://E:/Users/Jonatan/Documents/Programming/Lexicon/HangmanApp/HangmanApp/Program.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -63,7 +62,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;.NET Project.HangmanApp.executor&quot;: &quot;Debug&quot;,
+    &quot;.NET Project.HangmanApp.executor&quot;: &quot;Run&quot;,
     &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
@@ -118,6 +117,8 @@
       <workItem from="1755071490598" duration="12014000" />
       <workItem from="1755179262512" duration="2974000" />
       <workItem from="1755182558982" duration="97000" />
+      <workItem from="1755193255080" duration="82000" />
+      <workItem from="1755237947803" duration="5099000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -186,19 +187,6 @@
           <properties exception="System.Threading.ThreadAbortException" breakIfHandledByOtherCode="false" displayValue="System.Threading.ThreadAbortException" />
           <option name="timeStamp" value="3" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/HangmanApp/HangmanApp.cs</url>
-          <line>19</line>
-          <properties documentPath="$PROJECT_DIR$/HangmanApp/HangmanApp.cs" containingFunctionPresentation="Method 'GameplayLoop'">
-            <startOffsets>
-              <option value="496" />
-            </startOffsets>
-            <endOffsets>
-              <option value="539" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

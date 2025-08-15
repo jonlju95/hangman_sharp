@@ -5,14 +5,12 @@ using HangmanApp.Utils;
 namespace HangmanApp;
 
 public class GameLogic(string randomWord, int maxRounds) {
-    private readonly string correctWord = randomWord;
-    private readonly HashSet<char> guessedLetters = [];
 
-    private GameModel gameModel = new GameModel {
+    private readonly GameModel gameModel = new GameModel {
         CorrectWord = randomWord,
         GuessedLetters = [],
         RemainingTries = maxRounds,
-        MaskedWord = new string('_', randomWord.Length),
+        MaskedWord = new string('_', randomWord.Length)
     };
 
     public GameModel GetState() {
@@ -69,17 +67,5 @@ public class GameLogic(string randomWord, int maxRounds) {
 
         gameModel.RemainingTries--;
         return GuessResult.IncorrectWord;
-    }
-
-    public HashSet<char> GetWrongGuesses() {
-        return gameModel.GuessedLetters;
-    }
-
-    public int GetRemainingGuesses() {
-        return gameModel.RemainingTries;
-    }
-
-    public string GetFullWord() {
-        return gameModel.CorrectWord;
     }
 }

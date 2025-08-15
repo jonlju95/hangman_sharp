@@ -1,7 +1,7 @@
 using HangmanApp.Interfaces;
 using HangmanApp.Models;
 
-namespace HangmanApp.Utils;
+namespace HangmanApp;
 
 public class GameUI : IGameUI {
     public void ShowWelcome() {
@@ -52,6 +52,7 @@ public class GameUI : IGameUI {
             case GuessResult.AlreadyGuessed:
                 ShowAlreadyGuessedMessage();
                 break;
+            case GuessResult.InvalidInput:
             default:
                 ShowInvalidInputMessage();
                 break;
